@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
                     format: /\A\S+@\S+\z/,
                     uniqueness: { case_sensitive: false }
 
-  validates :password, length: { minimum: 10, allow_blank: true }                    
+  validates :password, length: { minimum: 5, allow_blank: true }
+                      
 end
