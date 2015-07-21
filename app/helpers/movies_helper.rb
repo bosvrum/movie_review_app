@@ -14,4 +14,19 @@ module MoviesHelper
       image_tag(movie.image_file_name)
     end
   end
+
+  def format_average_stars(movie)
+    if movie.average_stars.nil?
+      content_tag(:strong, 'No reviews')
+    else
+      #pluralize(number_with_precision(movie.average_stars, precision: 1), 'star')
+      "*" * movie.average_stars.round
+    end
+  end
+
+  
+  def delete_review_image
+   image_tag('trash.png', style: 'border: 0', :title => 'Delete Review')
+  end
+  
 end
