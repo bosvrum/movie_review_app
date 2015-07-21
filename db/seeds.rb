@@ -104,5 +104,11 @@ Movie.create!([
     total_gross: 387_623_910
   }
 ])
-    
-    
+  movie = Movie.find_by(title: 'Iron Man')
+  movie.reviews.create!(name: "Cata Lin", stars: 3, comment: "I laughed, I cried, I spilled my popcorn!")
+  movie.reviews.create!(name: "Marta Lucia", stars: 5, comment: "I'm a better reviewer than he is.")
+  movie.reviews.create!(name: "Dan Bor", stars: 4, comment: "It's been years since a movie superhero was this fierce and this funny.")
+
+  movie = Movie.find_by(title: 'Superman')
+  movie.reviews.create!(name: "Cesar Felix", stars: 5, comment: "It's a bird, it's a plane, it's a blockbuster!") 
+      
