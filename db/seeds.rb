@@ -111,4 +111,9 @@ Movie.create!([
 
   movie = Movie.find_by(title: 'Superman')
   movie.reviews.create!(name: "Cesar Felix", stars: 5, comment: "It's a bird, it's a plane, it's a blockbuster!") 
-      
+   
+
+  movie = Movie.find_by(title: 'Iron Man')
+  movie.fans << roger
+  movie.fans << gene
+  movie.fans << elvis    
