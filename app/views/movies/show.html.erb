@@ -1,3 +1,5 @@
+<% content_for(:title, @movie.title) %>
+
 <article id="movie" class="movie">
   <header>
     <%= image_for(@movie) %>
@@ -36,6 +38,19 @@
       <%= button_to "Fave", movie_favorites_path(@movie), class: "button fave" %>
     <% end %>
   <% end %>
+
+  <% content_for :side do %>
+    <% if @fans.any? %>
+      <h3>Fans</h3>
+      <ul>
+        <% @fans.each do |user| %>
+          <li>          
+            <%= link_to user.name, user %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
   <h3>Cast</h3>
     <p>
       <%= @movie.cast %>
@@ -56,12 +71,14 @@
       <%= format_average_stars(@movie) %>
     </p>
 
-  <h3>Genres</h3>
+  <% content_for :side do %>
+    <h3>Genres</h3>
     <ul>
       <% @genres.each do |genre| %>
         <li><%= genre.name %></li>
       <% end %>
-    </ul>  
+    </ul>
+  <% end %>  
 
 
   
